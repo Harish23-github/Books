@@ -1,0 +1,12 @@
+﻿@using Books.Contracts.Books.Dtos
+@model CitationResponseDto
+
+@if (Model.CitationType == CitationType.Chicago)
+{
+    <h6>Chicago Citation</h6>
+}
+else
+{
+    <h6>MLA Citation</h6>
+}
+@Html.Raw(Model.Citation)

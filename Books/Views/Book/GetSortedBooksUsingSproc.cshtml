@@ -1,0 +1,25 @@
+﻿@using Books.Contracts.Books.Dtos
+@model List<BookData>
+
+<h6 style="text-align: center">Books Using Stored Procedure</h6>
+
+<table style="width: 100%">
+    <tr>
+        <th>Author Name</th>
+        <th>Title</th>
+        <th>Publisher</th>
+        <th>Action</th>
+    </tr>
+    @foreach (BookData book in Model)
+    {
+    <tr>
+        <td>@book.AuthorName</td>
+        <td>@book.Title</td>
+        <td>@book.Publisher</td>
+        <td>
+            <a asp-controller="Book" asp-action="GetChicagoCitation" asp-route-id="@book.Id">Generate Chicago Citation</a><br>
+            <a asp-controller="Book" asp-action="GetMlaCitation" asp-route-id="@book.Id">Generate MLA Citation</a>
+        </td>
+    </tr>
+    }
+</table>
