@@ -2,8 +2,8 @@
 Project Setup & Version Details:
 1. Clone the Repository<br>
 2. In SQL Server, Create a new Database<br>
-3. In **appsettings.json** file, change ConnectionStrings & Open Package Manager Console and run the command **update-database**
-4. Execute the stored procedures once the above setup is done
+3. In **appsettings.json** file, change ConnectionStrings & Open Package Manager Console and run the command **update-database**<br>
+4. Execute the stored procedures once the above setup is done.<br>
 Home Page:
 ![image](https://github.com/Harish23-github/Books/assets/72464644/81314025-b4fb-4416-b998-aadc53ad8e56)
 
