@@ -16,7 +16,7 @@ namespace Books.Contracts.Books.Interfaces
         string GenerateChicagoCitation(Book book);
         string GenerateMlaCitation(Book book);
         IEnumerable<CommonBookData> GetSecondSortedBooks();
-
         decimal GetTotalBooksPrice();
+        void UpdateBook(Book book);
     }
 }

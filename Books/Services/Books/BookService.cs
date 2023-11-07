@@ -35,7 +35,7 @@ namespace Books.Services.Books
         public string GenerateMlaCitation(Book book)
         {
             string citation = string.Empty;
-            if (book.VolumeNumber != null )
+            if (book.VolumeNumber != null)
                 citation = $"{book.AuthorLastName}, {book.AuthorFirstName}. {book.PublicationDate.Year.ToString()}. \"{book.Title}.\" <i>{book.JournalTitle}</i>, no.{book.VolumeNumber} ({book.PublicationDate.ToString("MMMM")} {book.PublicationDate.Year.ToString()}): {book.PageRange}.";
             else
                 citation = $"{book.AuthorLastName}, {book.AuthorFirstName}. {book.PublicationDate.Year.ToString()}. \"{book.Title}.\" <i>{book.JournalTitle}</i>, ({book.PublicationDate.ToString("MMMM")} {book.PublicationDate.Year.ToString()}): {book.PageRange}.";
@@ -73,6 +73,11 @@ namespace Books.Services.Books
         public decimal GetTotalBooksPrice()
         {
             return _bookRepository.GetAll().Select(x => x.Price).Sum();
+        }
+
+        public void UpdateBook(Book book)
+        {
+            _bookRepository.Update(book);
         }
     }
 }

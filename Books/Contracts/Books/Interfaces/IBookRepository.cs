@@ -11,6 +11,7 @@ namespace Books.Contracts.Books.Interfaces
         IEnumerable<Book> GetAll();
         Book Get(Guid id);
         void Create(Book book);
+        void Update(Book book);
         IEnumerable<BookData> GetAllBooksUsingSproc();
         Task<Book> InsertAndGetAsync(Book book);
         IEnumerable<CommonBookData> GetAllSecondSortedBooksUsingSproc();

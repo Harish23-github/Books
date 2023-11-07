@@ -49,5 +49,11 @@ namespace Books.Domain.Repositories
             await _dbContext.SaveChangesAsync();
             return book;
         }
+
+        public void Update(Book book)
+        {
+            _dbContext.Books.Update(book);
+            _dbContext.SaveChanges();
+        }
     }
 }

@@ -52,7 +52,14 @@ namespace Books.Controllers
                 Book book = _bookService.GetBook(id);
                 string chicagoCitation = book.ChicagoCitation;
                 if (string.IsNullOrEmpty(chicagoCitation))
+                {
                     chicagoCitation = _bookService.GenerateChicagoCitation(book);
+                    if (!string.IsNullOrEmpty(chicagoCitation))
+                    {
+                        book.ChicagoCitation = chicagoCitation;
+                        _bookService.UpdateBook(book);
+                    }
+                }
                 var response = new CitationResponseDto
                 {
                     Citation = chicagoCitation,
@@ -74,7 +81,14 @@ namespace Books.Controllers
                 Book book = _bookService.GetBook(id);
                 string mlaCitation = book.MlaCitation;
                 if (string.IsNullOrEmpty(mlaCitation))
-                    mlaCitation = _bookService.GenerateChicagoCitation(book);
+                {
+                    mlaCitation = _bookService.GenerateMlaCitation(book);
+                    if (!string.IsNullOrEmpty(mlaCitation))
+                    {
+                        book.MlaCitation = mlaCitation;
+                        _bookService.UpdateBook(book);
+                    }
+                }
                 var response = new CitationResponseDto
                 {
                     Citation = mlaCitation,
