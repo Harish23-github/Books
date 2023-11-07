@@ -27,12 +27,12 @@ namespace Books.Services.Books
             return await _bookRepository.InsertAndGetAsync(book);
         }
 
-        public string GenerateChicagoCitation(Book book)
+        public string GenerateMlaCitation(Book book)
         {
             return $"{book.AuthorLastName}, {book.AuthorFirstName}, \"{book.Title}\" <i>{book.JournalTitle}</i>, {book.Publisher}, {book.PublicationDate.Year.ToString()}, pp. {book.PageRange}.";
         }
 
-        public string GenerateMlaCitation(Book book)
+        public string GenerateChicagoCitation(Book book)
         {
             string citation = string.Empty;
             if (book.VolumeNumber != null)
