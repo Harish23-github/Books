@@ -35,7 +35,15 @@ namespace Books
             });
             services.AddTransient<IBookRepository, BookRepository>();
             services.AddScoped<IBookService, BookService>();
-
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", builder =>
+                {
+                    builder.WithOrigins("http://localhost:4200") // Update with your Angular UI URL
+                           .AllowAnyHeader()
+                           .AllowAnyMethod();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,7 +61,7 @@ namespace Books
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseCors("CorsPolicy");
             app.UseRouting();
 
             app.UseAuthorization();
